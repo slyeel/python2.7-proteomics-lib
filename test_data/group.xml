@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<mss:security_groups xmlns:mss="http://www.matrixscience.com/xmlns/schema/mascot_security_1_0" majorVersion="1" minorVersion="0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.matrixscience.com/xmlns/schema/mascot_security_1_0 ../config/mascot_security_1_0.xsd">
+
+  <mss:last_groupID>1094</mss:last_groupID>
+
+  <mss:all_groups>
+    <mss:group_data>
+      <mss:group_id>1</mss:group_id>
+      <mss:group_name>Guests</mss:group_name>
+      <mss:users>
+        <mss:user_id>1</mss:user_id>
+      </mss:users>
+      <mss:permitted_tasks>
+        <mss:task>
+          <mss:task_id>1</mss:task_id>
+          <mss:short_desc>SEARCH: Allow pmf searches</mss:short_desc>
+          <mss:long_desc>Unless this is set, the user will not be able to perform any peptide mass fingerprint searches.</mss:long_desc>
+          <mss:task_name>SECTASK_ALLOWPMF</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>2</mss:task_id>
+          <mss:short_desc>SEARCH: Allow ms-ms (and SQ) searches</mss:short_desc>
+          <mss:long_desc>Unless this is set, the user will not be able to perform any ms-ms or sequence tag searches.</mss:long_desc>
+          <mss:task_name>SECTASK_ALLOWMSMS</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>5</mss:task_id>
+          <mss:short_desc>SEARCH: Maximum number of concurrent searches per user</mss:short_desc>
+          <mss:long_desc>This overrides the default setting in mascot.dat - either up or down.</mss:long_desc>
+          <mss:task_name>SECTASK_MAXCONCURRENTSEARCHES</mss:task_name>
+          <mss:type>2</mss:type>
+          <mss:values_array>
+            <mss:value>5</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>6</mss:task_id>
+          <mss:short_desc>SEARCH: Maximum mascot search job priority</mss:short_desc>
+          <mss:long_desc>Job priority can either be changed from the status screen, or from Mascot Daemon. Priority is in the range -10 to +10.</mss:long_desc>
+          <mss:task_name>SECTASK_MAXJOBPRIORITY</mss:task_name>
+          <mss:type>2</mss:type>
+          <mss:values_array>
+            <mss:value>-10</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>7</mss:task_id>
+          <mss:short_desc>SEARCH: Maximum number of queries per search</mss:short_desc>
+          <mss:long_desc>This overrides the default setting in mascot.dat - either above or below that value.</mss:long_desc>
+          <mss:task_name>SECTASK_MAXQUERIES</mss:task_name>
+          <mss:type>2</mss:type>
+          <mss:values_array>
+            <mss:value>10000</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>8</mss:task_id>
+          <mss:short_desc>SEARCH: Maximum execution time</mss:short_desc>
+          <mss:long_desc>This is the maximum elapsed time in seconds - it is not the maximum cpu time, and therefore will be affected by how busy the server is.</mss:long_desc>
+          <mss:task_name>SECTASK_MAXEXECUTIONTIME</mss:task_name>
+          <mss:type>2</mss:type>
+          <mss:values_array>
+            <mss:value>3000</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>10</mss:task_id>
+          <mss:short_desc>SEARCH: Special fasta databases that override the default setting</mss:short_desc>
+          <mss:long_desc>If 'Allow all fasta databases to be searched' is set, then all databases except those listed here can be searched. If 'Allow all fasta databases to be searched' is not included, then only databases listed here can be searched. Enter a list of database names separated by commas - e.g. MSDB, NCBInr</mss:long_desc>
+          <mss:task_name>SECTASK_NAMEDFASTA</mss:task_name>
+          <mss:type>10</mss:type>
+          <mss:values_array>
+            <mss:value>IPI_arath</mss:value>
+            <mss:value>IPI_bovin</mss:value>
+            <mss:value>IPI_brare</mss:value>
+            <mss:value>IPI_chick</mss:value>
+            <mss:value>IPI_human</mss:value>
+            <mss:value>IPI_mouse</mss:value>
+            <mss:value>IPI_rat</mss:value>
+            <mss:value>M_smeg</mss:value>
+            <mss:value>UniProt</mss:value>
+            <mss:value>Yeast_ORF</mss:value>
+            <mss:value>ecoli-k12</mss:value>
+          </mss:values_array>
+        </mss:task>
+      </mss:permitted_tasks>
+    </mss:group_data>
+    <mss:group_data>
+      <mss:group_id>2</mss:group_id>
+      <mss:group_name>Administrators</mss:group_name>
+      <mss:users>
+        <mss:user_id>2</mss:user_id>
+        <mss:user_id>1010</mss:user_id>
+        <mss:user_id>1020</mss:user_id>
+        <mss:user_id>1204</mss:user_id>
+        <mss:user_id>1224</mss:user_id>
+      </mss:users>
+      <mss:permitted_tasks>
+        <mss:task>
+          <mss:task_id>14</mss:task_id>
+          <mss:short_desc>VIEW: See all search results with a USERID</mss:short_desc>
+          <mss:long_desc>Adding this task allows a member of the group to see any search results that have a (non-zero) user ID. Searches without a USERID (prior to Mascot 2.1) or searches where security is disabled cannot be viewed.</mss:long_desc>
+          <mss:task_name>SECTASK_SEEALLSEARCHESWITHUSERID</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>15</mss:task_id>
+          <mss:short_desc>VIEW: See search results without USERID field</mss:short_desc>
+          <mss:long_desc>Adding this task allows a member of the group to see any search results that don't have a USERID (i.e. searches prior to Mascot 2.1) or searches with USERID=0 (Security Disabled).</mss:long_desc>
+          <mss:task_name>SECTASK_SEEOLDSEARCHES</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>16</mss:task_id>
+          <mss:short_desc>VIEW: Allow user to view the search log</mss:short_desc>
+          <mss:long_desc>Allow user to view the search log. They may not be able to view other searches depending on other VIEW: tasks.</mss:long_desc>
+          <mss:task_name>SECTASK_USEMSREVIEWEXE</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>17</mss:task_id>
+          <mss:short_desc>GENERAL: View config files using ms-status</mss:short_desc>
+          <mss:long_desc>This is a basic requirement for client applications. Adding this task allows client applications to read the configuration files such as the mod_file, enzymes file and mascot.dat.</mss:long_desc>
+          <mss:task_name>SECTASK_VIEWCONFIGUSINGMSSTATUS</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>22</mss:task_id>
+          <mss:short_desc>CLIENT: For Mascot Daemon, allow spoofing of another user</mss:short_desc>
+          <mss:long_desc>For Mascot Daemon, allow the submission of searches on behalf on another user. Also implies that the user can call ms-status.exe?Show=MS_USERS.</mss:long_desc>
+          <mss:task_name>SECTASK_ALLOWSPOOFOTHERUSER</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>30</mss:task_id>
+          <mss:short_desc>ADMIN: Use the security administration utility</mss:short_desc>
+          <mss:long_desc>Allows access to the security administration utility. This allows the user to add/delete/edit users and groups, so this should only be added to the administrators group.</mss:long_desc>
+          <mss:task_name>SECTASK_ADMINPAGES</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>31</mss:task_id>
+          <mss:short_desc>ADMIN: Access to the Database Maintenance application</mss:short_desc>
+          <mss:long_desc>Access to the utility for adding and configuring sequence databases.</mss:long_desc>
+          <mss:task_name>SECTASK_ACCESSDBSETUP</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>32</mss:task_id>
+          <mss:short_desc>ADMIN: Allow use of Database Status application</mss:short_desc>
+          <mss:long_desc>View the status of all the sequence databases. Links to database statistics, search status, log files, etc. Also has links to currently running and recently run searches.</mss:long_desc>
+          <mss:task_name>SECTASK_USEMSSTATUSEXE</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>33</mss:task_id>
+          <mss:short_desc>ADMIN: Allow user to see cluster pages in ms-status.exe</mss:short_desc>
+          <mss:long_desc>Administrators may want users to see all their current searches but not want them to see the cluster setup.</mss:long_desc>
+          <mss:task_name>SECTASK_MSSTATUSEXECLUSTER</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>34</mss:task_id>
+          <mss:short_desc>ADMIN: Allow user to retry a failed database using ms-status.exe</mss:short_desc>
+          <mss:long_desc>If a database fails to come on line, then the link that displays the 'restart' will be displayed.</mss:long_desc>
+          <mss:task_name>SECTASK_MSSTATUSEXERETRYDB</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>36</mss:task_id>
+          <mss:short_desc>ADMIN: Kill / pause / change priority of searches from other groups</mss:short_desc>
+          <mss:long_desc>Requires 'Allow use of Database Status application'. Adding this task to the group then allows the user to kill / pause / change priority of any other peoples searches.</mss:long_desc>
+          <mss:task_name>SECTASK_KILLALLTASK</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>37</mss:task_id>
+          <mss:short_desc>ADMIN: Access to the configuration editor to view configuration files</mss:short_desc>
+          <mss:long_desc>Allows the user to view, but not edit the configurations files (enzymes, masses, modifications), using the configuration editor supplied with Mascot 2.2 and later.</mss:long_desc>
+          <mss:task_name>SECTASK_VIEWCONFIG</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>38</mss:task_id>
+          <mss:short_desc>ADMIN: Access to the configuration editor to edit configuration files</mss:short_desc>
+          <mss:long_desc>Allows the user to view and edit the configurations files (enzymes, masses, modifications), using the configuration editor supplied with Mascot 2.2 and later.</mss:long_desc>
+          <mss:task_name>SECTASK_EDITCONFIG</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+      </mss:permitted_tasks>
+    </mss:group_data>
+    <mss:group_data>
+      <mss:group_id>3</mss:group_id>
+      <mss:group_name>PowerUsers</mss:group_name>
+      <mss:users>
+        <mss:user_id>1010</mss:user_id>
+        <mss:user_id>1020</mss:user_id>
+      </mss:users>
+      <mss:permitted_tasks>
+        <mss:task>
+          <mss:task_id>1</mss:task_id>
+          <mss:short_desc>SEARCH: Allow pmf searches</mss:short_desc>
+          <mss:long_desc>Unless this is set, the user will not be able to perform any peptide mass fingerprint searches.</mss:long_desc>
+          <mss:task_name>SECTASK_ALLOWPMF</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>2</mss:task_id>
+          <mss:short_desc>SEARCH: Allow ms-ms (and SQ) searches</mss:short_desc>
+          <mss:long_desc>Unless this is set, the user will not be able to perform any ms-ms or sequence tag searches.</mss:long_desc>
+          <mss:task_name>SECTASK_ALLOWMSMS</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>3</mss:task_id>
+          <mss:short_desc>SEARCH: Allow msms no enzyme searches</mss:short_desc>
+          <mss:long_desc>Unless this is set, the user will not be able to perform any no enzyme searches on ms-ms or sequence tag data.</mss:long_desc>
+          <mss:task_name>SECTASK_ALLOWMSMSNOENZYME</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>4</mss:task_id>
+          <mss:short_desc>SEARCH: Allow no enzyme pmf searches</mss:short_desc>
+          <mss:long_desc>Unless this is set, the user will not be able to perform any no enzyme searches on pmf data. It is not usually sensible to perform such searches.</mss:long_desc>
+          <mss:task_name>SECTASK_ALLOWPMFNOENZYME</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>9</mss:task_id>
+          <mss:short_desc>SEARCH: Allow all fasta databases to be searched</mss:short_desc>
+          <mss:long_desc>By default no databases may be searched.</mss:long_desc>
+          <mss:task_name>SECTASK_ALLFASTA</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>13</mss:task_id>
+          <mss:short_desc>VIEW: See search results from other people in your own group</mss:short_desc>
+          <mss:long_desc>You can see your own search results without any special permissions. Adding this task allows a user to see searches submitted by other users who belong to the same group.</mss:long_desc>
+          <mss:task_name>SECTASK_SEESEARCHINGROUP</mss:task_name>
+          <mss:type>11</mss:type>
+          <mss:values_array>
+            <mss:value>1010</mss:value>
+            <mss:value>1020</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>14</mss:task_id>
+          <mss:short_desc>VIEW: See all search results with a USERID</mss:short_desc>
+          <mss:long_desc>Adding this task allows a member of the group to see any search results that have a (non-zero) user ID. Searches without a USERID (prior to Mascot 2.1) or searches where security is disabled cannot be viewed.</mss:long_desc>
+          <mss:task_name>SECTASK_SEEALLSEARCHESWITHUSERID</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>15</mss:task_id>
+          <mss:short_desc>VIEW: See search results without USERID field</mss:short_desc>
+          <mss:long_desc>Adding this task allows a member of the group to see any search results that don't have a USERID (i.e. searches prior to Mascot 2.1) or searches with USERID=0 (Security Disabled).</mss:long_desc>
+          <mss:task_name>SECTASK_SEEOLDSEARCHES</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>16</mss:task_id>
+          <mss:short_desc>VIEW: Allow user to view the search log</mss:short_desc>
+          <mss:long_desc>Allow user to view the search log. They may not be able to view other searches depending on other VIEW: tasks.</mss:long_desc>
+          <mss:task_name>SECTASK_USEMSREVIEWEXE</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>17</mss:task_id>
+          <mss:short_desc>GENERAL: View config files using ms-status</mss:short_desc>
+          <mss:long_desc>This is a basic requirement for client applications. Adding this task allows client applications to read the configuration files such as the mod_file, enzymes file and mascot.dat.</mss:long_desc>
+          <mss:task_name>SECTASK_VIEWCONFIGUSINGMSSTATUS</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>18</mss:task_id>
+          <mss:short_desc>GENERAL: Allow user to modify their own profile</mss:short_desc>
+          <mss:long_desc>Allow user to modify their own profile. For example, allow them to change their email address.</mss:long_desc>
+          <mss:task_name>SECTASK_MODIFYOWNPROFILE</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>19</mss:task_id>
+          <mss:short_desc>CLIENT: Mascot Daemon is allowed to submit searches</mss:short_desc>
+          <mss:long_desc>Mascot Daemon is allowed to submit searches. Without this, Mascot Daemon cannot connect to the Mascot server.</mss:long_desc>
+          <mss:task_name>SECTASK_DAEMONCLIENT</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>20</mss:task_id>
+          <mss:short_desc>CLIENT: Mascot Distiller is allowed to submit searches</mss:short_desc>
+          <mss:long_desc>Mascot Distiller is allowed to submit searches. Without this, Mascot Distiller cannot connect to the Mascot server.</mss:long_desc>
+          <mss:task_name>SECTASK_DISTILLERCLIENT</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>32</mss:task_id>
+          <mss:short_desc>ADMIN: Allow use of Database Status application</mss:short_desc>
+          <mss:long_desc>View the status of all the sequence databases. Links to database statistics, search status, log files, etc. Also has links to currently running and recently run searches.</mss:long_desc>
+          <mss:task_name>SECTASK_USEMSSTATUSEXE</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+      </mss:permitted_tasks>
+    </mss:group_data>
+    <mss:group_data>
+      <mss:group_id>4</mss:group_id>
+      <mss:group_name>Daemons</mss:group_name>
+      <mss:users>
+        <mss:user_id>4</mss:user_id>
+        <mss:user_id>1006</mss:user_id>
+        <mss:user_id>1008</mss:user_id>
+        <mss:user_id>1010</mss:user_id>
+        <mss:user_id>1026</mss:user_id>
+        <mss:user_id>1028</mss:user_id>
+      </mss:users>
+      <mss:permitted_tasks>
+        <mss:task>
+          <mss:task_id>1</mss:task_id>
+          <mss:short_desc>SEARCH: Allow pmf searches</mss:short_desc>
+          <mss:long_desc>Unless this is set, the user will not be able to perform any peptide mass fingerprint searches.</mss:long_desc>
+          <mss:task_name>SECTASK_ALLOWPMF</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>2</mss:task_id>
+          <mss:short_desc>SEARCH: Allow ms-ms (and SQ) searches</mss:short_desc>
+          <mss:long_desc>Unless this is set, the user will not be able to perform any ms-ms or sequence tag searches.</mss:long_desc>
+          <mss:task_name>SECTASK_ALLOWMSMS</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>3</mss:task_id>
+          <mss:short_desc>SEARCH: Allow msms no enzyme searches</mss:short_desc>
+          <mss:long_desc>Unless this is set, the user will not be able to perform any no enzyme searches on ms-ms or sequence tag data.</mss:long_desc>
+          <mss:task_name>SECTASK_ALLOWMSMSNOENZYME</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>4</mss:task_id>
+          <mss:short_desc>SEARCH: Allow no enzyme pmf searches</mss:short_desc>
+          <mss:long_desc>Unless this is set, the user will not be able to perform any no enzyme searches on pmf data. It is not usually sensible to perform such searches.</mss:long_desc>
+          <mss:task_name>SECTASK_ALLOWPMFNOENZYME</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>9</mss:task_id>
+          <mss:short_desc>SEARCH: Allow all fasta databases to be searched</mss:short_desc>
+          <mss:long_desc>By default no databases may be searched.</mss:long_desc>
+          <mss:task_name>SECTASK_ALLFASTA</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>13</mss:task_id>
+          <mss:short_desc>VIEW: See search results from other people in your own group</mss:short_desc>
+          <mss:long_desc>You can see your own search results without any special permissions. Adding this task allows a user to see searches submitted by other users who belong to the same group.</mss:long_desc>
+          <mss:task_name>SECTASK_SEESEARCHINGROUP</mss:task_name>
+          <mss:type>11</mss:type>
+          <mss:values_array>
+            <mss:value>4</mss:value>
+            <mss:value>1006</mss:value>
+            <mss:value>1008</mss:value>
+            <mss:value>1010</mss:value>
+            <mss:value>1026</mss:value>
+            <mss:value>1028</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>14</mss:task_id>
+          <mss:short_desc>VIEW: See all search results with a USERID</mss:short_desc>
+          <mss:long_desc>Adding this task allows a member of the group to see any search results that have a (non-zero) user ID. Searches without a USERID (prior to Mascot 2.1) or searches where security is disabled cannot be viewed.</mss:long_desc>
+          <mss:task_name>SECTASK_SEEALLSEARCHESWITHUSERID</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>15</mss:task_id>
+          <mss:short_desc>VIEW: See search results without USERID field</mss:short_desc>
+          <mss:long_desc>Adding this task allows a member of the group to see any search results that don't have a USERID (i.e. searches prior to Mascot 2.1) or searches with USERID=0 (Security Disabled).</mss:long_desc>
+          <mss:task_name>SECTASK_SEEOLDSEARCHES</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>17</mss:task_id>
+          <mss:short_desc>GENERAL: View config files using ms-status</mss:short_desc>
+          <mss:long_desc>This is a basic requirement for client applications. Adding this task allows client applications to read the configuration files such as the mod_file, enzymes file and mascot.dat.</mss:long_desc>
+          <mss:task_name>SECTASK_VIEWCONFIGUSINGMSSTATUS</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>19</mss:task_id>
+          <mss:short_desc>CLIENT: Mascot Daemon is allowed to submit searches</mss:short_desc>
+          <mss:long_desc>Mascot Daemon is allowed to submit searches. Without this, Mascot Daemon cannot connect to the Mascot server.</mss:long_desc>
+          <mss:task_name>SECTASK_DAEMONCLIENT</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>20</mss:task_id>
+          <mss:short_desc>CLIENT: Mascot Distiller is allowed to submit searches</mss:short_desc>
+          <mss:long_desc>Mascot Distiller is allowed to submit searches. Without this, Mascot Distiller cannot connect to the Mascot server.</mss:long_desc>
+          <mss:task_name>SECTASK_DISTILLERCLIENT</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>22</mss:task_id>
+          <mss:short_desc>CLIENT: For Mascot Daemon, allow spoofing of another user</mss:short_desc>
+          <mss:long_desc>For Mascot Daemon, allow the submission of searches on behalf on another user. Also implies that the user can call ms-status.exe?Show=MS_USERS.</mss:long_desc>
+          <mss:task_name>SECTASK_ALLOWSPOOFOTHERUSER</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>32</mss:task_id>
+          <mss:short_desc>ADMIN: Allow use of Database Status application</mss:short_desc>
+          <mss:long_desc>View the status of all the sequence databases. Links to database statistics, search status, log files, etc. Also has links to currently running and recently run searches.</mss:long_desc>
+          <mss:task_name>SECTASK_USEMSSTATUSEXE</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+      </mss:permitted_tasks>
+    </mss:group_data>
+    <mss:group_data>
+      <mss:group_id>5</mss:group_id>
+      <mss:group_name>MascotIntegraSystem</mss:group_name>
+      <mss:users>
+        <mss:user_id>6</mss:user_id>
+      </mss:users>
+      <mss:permitted_tasks>
+        <mss:task>
+          <mss:task_id>9</mss:task_id>
+          <mss:short_desc>SEARCH: Allow all fasta databases to be searched</mss:short_desc>
+          <mss:long_desc>By default no databases may be searched.</mss:long_desc>
+          <mss:task_name>SECTASK_ALLFASTA</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>14</mss:task_id>
+          <mss:short_desc>VIEW: See all search results with a USERID</mss:short_desc>
+          <mss:long_desc>Adding this task allows a member of the group to see any search results that have a (non-zero) user ID. Searches without a USERID (prior to Mascot 2.1) or searches where security is disabled cannot be viewed.</mss:long_desc>
+          <mss:task_name>SECTASK_SEEALLSEARCHESWITHUSERID</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>15</mss:task_id>
+          <mss:short_desc>VIEW: See search results without USERID field</mss:short_desc>
+          <mss:long_desc>Adding this task allows a member of the group to see any search results that don't have a USERID (i.e. searches prior to Mascot 2.1) or searches with USERID=0 (Security Disabled).</mss:long_desc>
+          <mss:task_name>SECTASK_SEEOLDSEARCHES</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>17</mss:task_id>
+          <mss:short_desc>GENERAL: View config files using ms-status</mss:short_desc>
+          <mss:long_desc>This is a basic requirement for client applications. Adding this task allows client applications to read the configuration files such as the mod_file, enzymes file and mascot.dat.</mss:long_desc>
+          <mss:task_name>SECTASK_VIEWCONFIGUSINGMSSTATUS</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+        <mss:task>
+          <mss:task_id>23</mss:task_id>
+          <mss:short_desc>CLIENT: Integra system account</mss:short_desc>
+          <mss:long_desc>Allows the Mascot Integra system account to retrieve details from the Mascot server.</mss:long_desc>
+          <mss:task_name>SECTASK_INTEGRASYSTEMACCOUNT</mss:task_name>
+          <mss:type>0</mss:type>
+          <mss:values_array>
+            <mss:value>true</mss:value>
+          </mss:values_array>
+        </mss:task>
+      </mss:permitted_tasks>
+    </mss:group_data>
+  </mss:all_groups>
+
+</mss:security_groups>

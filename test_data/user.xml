@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<mss:security_users xmlns:mss="http://www.matrixscience.com/xmlns/schema/mascot_security_1_0" majorVersion="1" minorVersion="0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.matrixscience.com/xmlns/schema/mascot_security_1_0 ../config/mascot_security_1_0.xsd">
+
+  <mss:last_userID>1278</mss:last_userID>
+
+  <mss:all_users>
+    <mss:user_data>
+      <mss:userID>1</mss:userID>
+      <mss:userName>guest</mss:userName>
+      <mss:fullName>Guest user</mss:fullName>
+      <mss:encryptedPassword></mss:encryptedPassword>
+      <mss:passwordExpiry>0</mss:passwordExpiry>
+      <mss:emailAddress>guest@localhost</mss:emailAddress>
+      <mss:accountEnabled>true</mss:accountEnabled>
+      <mss:userType>1</mss:userType>
+    </mss:user_data>
+    <mss:user_data>
+      <mss:userID>2</mss:userID>
+      <mss:userName>admin</mss:userName>
+      <mss:fullName>Administrator</mss:fullName>
+      <mss:encryptedPassword>$1$h6fDMg==dJHlBKvb0IKK7WI7gmW28A==</mss:encryptedPassword>
+      <mss:passwordExpiry>0</mss:passwordExpiry>
+      <mss:emailAddress>admin@localhost</mss:emailAddress>
+      <mss:accountEnabled>true</mss:accountEnabled>
+      <mss:userType>1</mss:userType>
+    </mss:user_data>
+    <mss:user_data>
+      <mss:userID>4</mss:userID>
+      <mss:userName>daemon</mss:userName>
+      <mss:fullName>Mascot Daemon</mss:fullName>
+      <mss:encryptedPassword>$1$lwScYQ==v8Ka/+8Axh+0qQH7VfKfvw==</mss:encryptedPassword>
+      <mss:passwordExpiry>0</mss:passwordExpiry>
+      <mss:emailAddress>daemon@localhost</mss:emailAddress>
+      <mss:accountEnabled>false</mss:accountEnabled>
+      <mss:userType>1</mss:userType>
+    </mss:user_data>
+    <mss:user_data>
+      <mss:userID>6</mss:userID>
+      <mss:userName>(system)</mss:userName>
+      <mss:fullName>Mascot Integra system account</mss:fullName>
+      <mss:encryptedPassword></mss:encryptedPassword>
+      <mss:passwordExpiry>0</mss:passwordExpiry>
+      <mss:emailAddress>integra@localhost</mss:emailAddress>
+      <mss:accountEnabled>true</mss:accountEnabled>
+      <mss:userType>2</mss:userType>
+    </mss:user_data>
+  </mss:all_users>
+
+</mss:security_users>

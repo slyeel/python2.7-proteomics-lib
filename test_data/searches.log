@@ -1,0 +1,10 @@
+1	12368	Contaminants_human	Guest user (Mascot Daemon)	guest@localhost	20100521 RL 1-3 (Mascot Daemon)	../data/20100601/F291512161.dat	Tue Jun  1 08:28:03 2010	380	User read res 	  0	MIS	Yes	130.88.0.0	1032
+2	21877	QCONCAT	Monitor Test DB 1			../data/20100601/F291512162.dat	Tue Jun  1 10:33:57 2010	  3	No email addr 	  0	MIS	Yes		3
+3	23784	SwissProt	Guest user	guest@localhost		../data/20100601/F291512163.dat	Tue Jun  1 11:01:05 2010	 36	User read res 	  0	MIS	Yes	130.88.0.0	1114
+4	26428	SwissProt	Guest user	guest@localhost	Q-Trap swissprot search	../data/20100601/F291512164.dat	Tue Jun  1 11:38:48 2010	 30	User read res 	  0	MIS	Yes	130.88.0.0	1032
+6	26532	SwissProt	Guest user	guest@localhost	Q-Trap swissprot search	../data/20100601/F291512166.dat	Tue Jun  1 11:39:31 2010	 25	User read res 	  0	MIS	Yes	130.88.0.0	1032
+7	26651	SwissProt	Guest user	guest@localhost	Q-Trap swissprot search	../data/20100601/F291512167.dat	Tue Jun  1 11:40:14 2010	 26	User read res 	  0	MIS	Yes	130.88.0.0	1032
+8	26735	SwissProt	Guest user	guest@localhost	Q-Trap swissprot search	../data/20100601/F291512168.dat	Tue Jun  1 11:40:57 2010	 29	User read res 	  0	MIS	Yes	130.88.0.0	1032
+9	26934	IPI_human	Guest user	guest@localhost	Q-Trap IPI human search	../data/20100601/F291512169.dat	Tue Jun  1 11:42:18 2010	 12	User read res 	  0	MIS	Yes	130.88.0.0	1032
+10	27040	IPI_human	Guest user	guest@localhost	Q-Trap IPI human search	../data/20100601/F291512170.dat	Tue Jun  1 11:42:50 2010	 15	User read res 	  0	MIS	Yes	130.88.0.0	1032
+12	27134	IPI_human	Guest user	guest@localhost	Q-Trap IPI human search	../data/20100601/F291512172.dat	Tue Jun  1 11:43:22 2010	 12	User read res 	  0	MIS	Yes	130.88.0.0	1032
