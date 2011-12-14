@@ -12,7 +12,7 @@ TODO 201111180955 JNS: write the documentation for this library
 # metadata
 __version__   = '0.01'
 __author__    = 'Julian Selley <j.selley@manchester.ac.uk>'
-__copyright__ = 'Copyright 2011 Julian Selley <j.selley@manchester.ac.uk'
+__copyright__ = 'Copyright 2011 Julian Selley <j.selley@manchester.ac.uk>'
 __license__   = '''\
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -45,7 +45,7 @@ class GroupXMLInputFileReader:
         self._filename = filename
 
     # TODO 20111119 JNS: document function ???
-    def readFile(self):
+    def read_file(self):
         _grps = []
         __group_doc = xml.dom.minidom.parse(self._filename)  # the group DOM
         __grp = None  # a representation (struct) of a group
@@ -70,7 +70,7 @@ class GroupXMLInputFileReader:
                         logger.debug("gid {0} stored".format(__grp.id))
                     # create a new group and store the group id
                     __grp = Group()
-                    __grp.id = childNode.childNodes[0].data
+                    __grp.id = int(childNode.childNodes[0].data)
                     logger.debug("setting gid: %s",
                                  childNode.childNodes[0].data)
                 # elif the node is the group name, set the group name
@@ -113,19 +113,29 @@ class LogEntry:
     ipaddr     = None
     uid        = None
 
-class LogFileInputFileReader:
+class LogInputFileReader:
     '''Mascot log reader'''
     def __init__(self, filename = 'data/logs/searches.log'):
-        with open(filename, 'rb') as logfile:
-            self._rows = csv.reader(logfile, delimiter = '\t')
+        self._rows = []
+        self._len = 0
         self._rowi = 0
+        file = open(filename, 'rb')
+        _csv = csv.reader(file, delimiter = '\t')
+        for _row in _csv:
+            self._rows.append(_row)
+            self._len += 1
+        file.close()
+
+    def __len__(self):
+        return self._len
 
     def __iter__(self):
         return self
     def next(self):
-        if self._row_index > len(self._rows):
+        if self._rowi >= len(self):
             raise StopIteration
         _logentry = LogEntry()
+        # TODO 20111214 JNS: put in checks of data, with exceptions
         _logentry.searchid   = self._rows[self._rowi][0]
         _logentry.pid        = self._rows[self._rowi][1]
         _logentry.database   = self._rows[self._rowi][2]
@@ -141,6 +151,7 @@ class LogFileInputFileReader:
         _logentry.enzyme     = self._rows[self._rowi][12]
         _logentry.ipaddr     = self._rows[self._rowi][13]
         _logentry.uid        = self._rows[self._rowi][14]
+        self._rowi += 1
 
         return _logentry
 
@@ -158,7 +169,7 @@ class UserXMLInputFileReader:
         self._filename = filename
 
     # TODO 20111119 JNS: document function ???
-    def readFile(self):
+    def read_file(self):
         _usrs = []
         __user_doc = xml.dom.minidom.parse(self._filename)  # the user DOM
         __usr = None  # a representation (struct) of a user
@@ -185,7 +196,7 @@ class UserXMLInputFileReader:
                         logger.debug("uid {0} stored".format(__usr.id))
                     # create a new user and store the user id
                     __usr = User()
-                    __usr.id = childNode.childNodes[0].data
+                    __usr.id = int(childNode.childNodes[0].data)
                     logger.debug("setting uid: %s",
                                  childNode.childNodes[0].data)
                 # elif the node is the user name, set the user name
@@ -213,12 +224,13 @@ class UserXMLInputFileReader:
         # return the users read in
         return _usrs
 
-#logging.basicConfig(level=logging.DEBUG)
-#group_f = GroupXMLInputFileReader()
-#groups = group_f.readFile()
-#if 'Hubbard' in [group.name for group in groups]:
-#    print "hello"
-#user_f = UserXMLInputFileReader()
-#users = user_f.readFile()
-#if 'mjfssjs' in [user.username for user in users]:
-#    print "hello"
+#if __name__ == '__main__':
+#    logging.basicConfig(level=logging.DEBUG)
+#    group_f = GroupXMLInputFileReader()
+#    groups = group_f.read_file()
+#    if 'Hubbard' in [group.name for group in groups]:
+#        print "hello"
+#        user_f = UserXMLInputFileReader()
+#        users = user_f.readFile()
+#        if 'mjfssjs' in [user.username for user in users]:
+#            print "hello"
