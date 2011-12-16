@@ -1,15 +1,29 @@
-# Copyright 2011 Julian Selley <j.selley@manchester.ac.uk>
+#!/bin/env python
+#
+# -*- coding: utf-8 -*-
+#
+# Copyright (C) University of Manchester 2011 
+#               Julian Selley <j.selley@manchester.ac.uk>
+################################################################################
 
-'''
-This is a test suite for the mascot library
+"""
+.. module:: test_mascot
+    :platform: Unix
+    :synopsis: A test module using unittest to test the Mascot module
+.. moduleauthor: Julian Selley <j.selley@manchester.ac.uk>
+
+Test Mascot Module
+******************
+This is a test suite for the Mascot module.
 
 Overview
 ========
 
 TODO 201112130955 JNS: write the documentation for this test suite
-'''
 
-# metadata
+"""
+
+# Metadata
 __version__   = '0.01'
 __author__    = 'Julian Selley <j.selley@manchester.ac.uk'
 __copyright__ = 'Copyright 2011 Julian Selley <j.selley@manchester.ac.uk>'
@@ -24,7 +38,7 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 '''
 
-# imports
+# Imports
 import mascot
 import unittest
 
@@ -67,6 +81,15 @@ class TestLogInputFileReader(unittest.TestCase):
 
     def test_number_log_entries(self):
         self.assertEqual(len(self.logs), 10, 'number of log entries')
+
+    def test_search_ids(self):
+        self.assertEqual([log.searchid for log in self.logs], range(1, 11),
+                         'search ids')
+
+    def test_ipaddr(self):
+        self.assertEqual(''.join([log.ipaddr for log in self.logs]),
+                         '130.88.0.0' * (len(self.logs) - 1),  # -1 because one of the log entries is missing an ipaddr
+                         'IP address is 130.88.0.0')
 
 class TestUserXMLInputFileReader(unittest.TestCase):
     def setUp(self):
