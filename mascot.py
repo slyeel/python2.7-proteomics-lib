@@ -261,6 +261,41 @@ class LogInputFileReader:
         # return the log entry
         return _logentry
 
+    def read_file(self):
+        """Reads the log file.
+
+        Reads the Mascot Log file and returns a list of log entries.
+
+        Returns:
+            list of LogEntries (LogEntry): the list of log entries
+
+        >>> logs = log_reader.read_file()
+
+        """
+        # sets up a list of logs
+        _logs = []
+        # iterate through and append the log_entries to the list of logs
+        for _log_entry in self:
+            # do in a try: ... except ...: loop to catch the StopIteration
+            try:
+                _logs.append(_log_entry)
+            except StopIteration:
+                pass
+
+        # return the log entries
+        return _logs
+
+    def reset(self, idx = 0):
+        """Reset the search log row pointer.
+
+        Reset the search log pointer (back to 0 by default).
+
+        Kwargs:
+            idx (int): the index to reset the pointer to (default: 0)
+
+        """
+        self._rowi = idx
+
 class User:
     """A Mascot User represented as a struct."""
     id       = None
