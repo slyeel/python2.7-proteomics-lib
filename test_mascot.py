@@ -6,6 +6,8 @@
 #               Julian Selley <j.selley@manchester.ac.uk>
 ################################################################################
 
+__docformat__ = 'restructuredtext en'
+
 """
 Test Mascot Module
 ******************
