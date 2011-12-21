@@ -41,6 +41,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 # Imports
 import csv
 import logging
+import time
 import xml.dom.minidom
 
 # Setup the logger
@@ -246,7 +247,7 @@ class LogInputFileReader:
         _logentry.useremail  = self._rows[self._rowi][4]
         _logentry.title      = self._rows[self._rowi][5]
         _logentry.filename   = self._rows[self._rowi][6]
-        _logentry.start      = self._rows[self._rowi][7]
+        _logentry.start      = time.strptime(self._rows[self._rowi][7], "%a %b %d %H:%M:%S %Y")
         _logentry.duration   = int(self._rows[self._rowi][8])
         _logentry.status     = self._rows[self._rowi][9]
         _logentry.priority   = int(self._rows[self._rowi][10])
