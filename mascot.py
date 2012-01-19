@@ -45,13 +45,17 @@ import time
 import xml.dom.minidom
 
 # Setup the logger
-logger = logging.getLogger('mascot')
+logger = logging.getLogger(__name__)
 
 class Group:
     """A Mascot Group represented as a struct."""
     id   = None  #: The numerical identification for the Mascot Group
     name = None  #: The name of the Mascot Group
     uids = []    #: A list of the user identifiers in the Mascot Group
+
+    def __repr__(self):
+        """Overrides the print functionality"""
+        return "Group({0}): {1}, {2}".format(self.id, self.name, self.uids)
 
 class GroupXMLInputFileReader:
     """File Reader for Mascot Group file.
@@ -117,8 +121,10 @@ class GroupXMLInputFileReader:
                     if (__grp != None):
                         _grps.append(__grp)
                         logger.debug("gid {0} stored".format(__grp.id))
+                        logger.debug("group uids length: {0}".format(len(__grp.uids)))
                     # create a new group and store the group id
                     __grp = Group()
+                    __grp.uids = []  # required because uids is a pointer that needs resetting
                     __grp.id = int(childNode.childNodes[0].data)
                     logger.debug("setting gid: %s",
                                  childNode.childNodes[0].data)
@@ -303,6 +309,11 @@ class User:
     username = None
     fullname = None
     email    = None
+
+    def __repr__(self):
+        """Overrides the print functionality"""
+        return "User({0}): {1} ({2} <{3}>)".format(self.id, self.username,
+                                                   self.fullname, self.email)
 
 class UserXMLInputFileReader:
     """File Reader for Mascot User file.
