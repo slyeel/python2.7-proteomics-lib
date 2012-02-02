@@ -1,0 +1,24 @@
+Installing Proteomics python library
+====================================
+
+You can use Python's setuptools to install the Proteomics python
+library: download the archive (either .tar.gz or .zip), unpack it and
+then do:
+
+    python setup.py install
+
+in the unpacked directory.
+
+Alternatively if you're using pip to manage your Python installations then you can do
+
+    pip install proteomics-<version>.tar.gz
+
+You can also use pip to install directly from github using
+
+    pip install -e git+git://github.com/fls-bioinformatics-core/proteomics-python2.7-proteomics-lib
+
+Any of these will make the `proteomics` library available for use in development.
+
+(To find out more about Python pip see http://www.pip-installer.org/en/latest/index.html)
+
+--
