@@ -23,11 +23,61 @@ __copyright__ = 'Copyright 2012 University of Manchester, Julian Selley <j.selle
 __license__   = 'The Artistic License 2.0 (see the file LICENSE included with the distribution)'
 
 # Imports
-from distutils.core import setup
+from __init__ import __version__
+from distutils.core import setup, Command
+from unittest import TextTestRunner, TestLoader
+from glob import glob
+from os.path import splitext, basename, join as pjoin, walk
+import os
+
+class TestCommand(Command):
+    user_options = [ ]
+
+    def initialize_options(self):
+        self._dir = os.getcwd()
+
+    def finalize_options(self):
+        pass
+
+    def run(self):
+        '''
+        Finds all the tests modules in tests/, and runs them.
+        '''
+        testfiles = [ ]
+        for t in glob(pjoin(self._dir, 'tests', '*.py')):
+            if not t.endswith('__init__.py'):
+                testfiles.append('.'.join(
+                    ['tests', splitext(basename(t))[0]])
+                )
+
+        tests = TestLoader().loadTestsFromNames(testfiles)
+        t = TextTestRunner(verbosity = 1)
+        t.run(tests)
+
+class CleanCommand(Command):
+    user_options = [ ]
+
+    def initialize_options(self):
+        self._clean_me = [ ]
+        for root, dirs, files in os.walk('.'):
+            for f in files:
+                if f.endswith('.pyc'):
+                    self._clean_me.append(pjoin(root, f))
+
+    def finalize_options(self):
+        pass
+
+    def run(self):
+        for clean_me in self._clean_me:
+            try:
+                os.unlink(clean_me)
+            except:
+                pass
 
 setup(name = 'proteomics',
-      version = proteomics.__version__,
+      version = __version__,
       description = 'A library of Proteomic class and methods',
+      long_description = 'A library of Proteomic class and methods',
       author = 'Julian Selley',
       author_email = 'j.selley@manchester.ac.uk',
       maintainer = 'Julian Selley',
@@ -49,6 +99,11 @@ setup(name = 'proteomics',
         'Topic :: Software Development :: Libraries :: Python Modules',
       ],
       packages = ['proteomics'],
+      package_dir = {'proteomics' : '.'},
+      package_data = {'' : ['README.md', 'CHANGES', 'LICENSE', 'INSTALL']},
+      data_files = [('config', ['epydoc.conf']),],
+      cmdclass = {'test': TestCommand, 'clean': CleanCommand},
+      #entry_points = {'' : [''],},
 )
 
 # patch distutils if it can't cope with the "classifiers" or
@@ -58,3 +113,6 @@ if version < '2.2.3':
     from distutils.dist import DistributionMetadata
     DistributionMetadata.classifiers = None
     DistributionMetadata.download_url = None
+
+
+## TODO 201202021610: http://da44en.wordpress.com/2002/11/22/using-distutils/
