@@ -3,3 +3,7 @@
 *~
 *.pyc
 MANIFEST
+CHANGES
+doc/
+dist/
+build/
