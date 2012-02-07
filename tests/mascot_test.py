@@ -6,8 +6,6 @@
 #               Julian Selley <j.selley@manchester.ac.uk>
 ################################################################################
 
-__docformat__ = 'restructuredtext en'
-
 """
 Test Mascot Module
 ******************
@@ -17,7 +15,7 @@ module, including various file readers / streams.
 Overview
 ========
 
-TODO 201112130955 JNS: write the documentation for this test suite
+@todo 201112130955 JNS: write the documentation for this test suite
 
 """
 
@@ -27,8 +25,16 @@ __author__    = 'Julian Selley <j.selley@manchester.ac.uk'
 __copyright__ = 'Copyright 2011 Julian Selley <j.selley@manchester.ac.uk>'
 __license__   = 'The Artistic License 2.0 (see the file LICENSE included with the distribution)'
 
+# This is a bit of a *hack*
+# to make this code work as part of the package.
+from os.path import join as pjoin
+
+# check ../.. for the mascot module to test
+import sys
+sys.path.append(pjoin('..', '..'))
+
 # Imports
-from .. import mascot
+import proteomics.mascot
 import unittest
 
 # There is no test for the struct classes as these simply store data, without
@@ -52,7 +58,7 @@ class TestGroupXMLInputFileReader(unittest.TestCase):
         """
         # create a reference to the file reader.
         # use the Mascot Group XML File in the 'test_data' folder.
-        self.grp_reader = mascot.GroupXMLInputFileReader('test_data/group.xml')
+        self.grp_reader = proteomics.mascot.GroupXMLInputFileReader(pjoin('test_data', 'group.xml'))
         # read the file and store the list of groups in the test object
         self.groups = self.grp_reader.read_file()
 
@@ -107,7 +113,7 @@ class TestLogInputFileReader(unittest.TestCase):
         self.logs = []
         # create a reference to the file reader.
         # use the Mascot Log File in the 'test_data' folder.
-        self.log_reader = mascot.LogInputFileReader('test_data/searches.log')
+        self.log_reader = proteomics.mascot.LogInputFileReader(pjoin('test_data', 'searches.log'))
         # store the logs in a list of LogEntry
         for log_entry in self.log_reader:
             try:
@@ -172,7 +178,7 @@ class TestUserXMLInputFileReader(unittest.TestCase):
         """
         # create a reference to the file reader.
         # use the Mascot User XML File in the 'test_data' folder.
-        self.usr_reader = mascot.UserXMLInputFileReader('test_data/user.xml')
+        self.usr_reader = proteomics.mascot.UserXMLInputFileReader(pjoin('test_data', 'user.xml'))
         # read the file and store the list of groups in the test object
         self.users = self.usr_reader.read_file()
 

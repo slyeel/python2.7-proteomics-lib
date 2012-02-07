@@ -6,15 +6,17 @@
 #               Julian Selley <j.selley@manchester.ac.uk>
 ################################################################################
 
-"""Proteomics module
-
-This module provides methodologies linked with Proteomics and Protein Mass
-Spectrometry. It actually loads in a load of other modules.
+"""
+Proteomics package
+==================
+This package provides methodologies linked with Proteomics and Protein
+Mass Spectrometry. This particular module simply loads the other
+modules in the package.
 
 Overview
-========
+--------
 
-TODO 201111180955 JNS: write the documentation for this library
+This package aims to provide methodologies for dealing with proteomics data. Currently, the only module part of this package is one connected with processing U{Matrix Science's Mascot <http://www.matrixscience.com/>} software data.
 
 """
 

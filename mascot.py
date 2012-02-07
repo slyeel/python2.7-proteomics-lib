@@ -6,20 +6,18 @@
 #               Julian Selley <j.selley@manchester.ac.uk>
 ################################################################################
 
-__docformat__ = 'restructuredtext en'
-
 """
 Mascot module
-*************
+=============
 This module contains code related to interpreting Mascot information and files.
 Mascot is a piece of software produced by Matrix Science(R), which is used
 in Proteomics to search Mass Spectrometry data for potential peptide
 identifications.
 
 Overview
-========
+--------
 
-TODO 201111180955 JNS: write the documentation for this library
+@todo 201111180955 JNS: write the documentation for this library
 
 """
 
@@ -30,6 +28,7 @@ __copyright__ = 'Copyright 2011 University of Manchester, Julian Selley <j.selle
 __license__   = 'The Artistic License 2.0 (see the file LICENSE included with the distribution)'
 
 # Imports
+from os.path import join as pjoin
 import csv
 import logging
 import time
@@ -60,12 +59,12 @@ class GroupXMLInputFileReader:
     The code contained here in uses the logging module to create debugging
     information.
 
-    >>> import mascot
-    >>> grp_reader = mascot.GroupXMLInputFileReader('test_data/group.xml')
-    >>> groups = grp_reader.readfile()
+        >>> import proteomics.mascot
+        >>> grp_reader = proteomics.mascot.GroupXMLInputFileReader('test_data/group.xml')
+        >>> groups = grp_reader.readfile()
 
     """
-    def __init__(self, filename = 'data/group.xml'):
+    def __init__(self, filename = pjoin('data', 'group.xml')):
         """Constructor.
 
         Takes a filename (optional) detailing where the group file exists, in
@@ -179,17 +178,17 @@ class LogInputFileReader:
     been set up to record the number of log entries within the object. It works
     with the `len` function.
 
-    >>> import mascot
-    >>> logs = []
-    >>> log_reader = mascot.LogInputFileReader('test_data/searches.log')
-    >>> for log_entry in log_reader:
-    ...     try:
-    ...         logs.append(log_entry)
-    ...     except StopIteration:
-    ...         pass
+        >>> import proteomics.mascot
+        >>> logs = []
+        >>> log_reader = proteomics.mascot.LogInputFileReader('test_data/searches.log')
+        >>> for log_entry in log_reader:
+        ...     try:
+        ...         logs.append(log_entry)
+        ...     except StopIteration:
+        ...         pass
 
     """
-    def __init__(self, filename = 'data/logs/searches.log'):
+    def __init__(self, filename = pjoin('data', 'logs', 'searches.log')):
         """Constructor.
 
         Takes a filename (optional) detailing where the log file exists, in
@@ -318,12 +317,12 @@ class UserXMLInputFileReader:
     The code contained here in uses the logging module to create debugging
     information.
 
-    >>> import mascot
-    >>> usr_reader = mascot.UserXMLInputFileReader('test_data/user.xml')
-    >>> users = usr_reader.readfile()
+        >>> import proteomics.mascot
+        >>> usr_reader = proteomics.mascot.UserXMLInputFileReader('test_data/user.xml')
+        >>> users = usr_reader.readfile()
 
     """
-    def __init__(self, filename = 'data/user.xml'):
+    def __init__(self, filename = pjoin('data', 'user.xml')):
         """Constructor.
 
         Takes a filename (optional) detailing where the user file exists, in
