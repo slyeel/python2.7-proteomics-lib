@@ -1,3 +1,4 @@
+graft tests/test_data
 recursive-include examples *.py
 recursive-include tests *.py
-graft tests/test_data
+recursive-include doc *.txt *.html *.png *.css *.js
