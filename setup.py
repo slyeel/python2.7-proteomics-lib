@@ -6,8 +6,6 @@
 #               Julian Selley <j.selley@manchester.ac.uk>
 ################################################################################
 
-__docformat__ = 'restructuredtext en'
-
 """
 Proteomics module setup
 =======================
@@ -100,8 +98,8 @@ setup(name = 'proteomics',
       ],
       packages = ['proteomics'],
       package_dir = {'proteomics' : '.'},
-      package_data = {'' : ['README.md', 'CHANGES', 'LICENSE', 'INSTALL']},
-      data_files = [('config', ['epydoc.conf']),],
+      package_data = {'' : ['README.md', 'CHANGES', 'epydoc.conf', 'LICENSE', 'INSTALL']},
+      #data_files = [('config', ['epydoc.conf']),],
       cmdclass = {'test': TestCommand, 'clean': CleanCommand},
       #entry_points = {'' : [''],},
 )
@@ -113,6 +111,3 @@ if version < '2.2.3':
     from distutils.dist import DistributionMetadata
     DistributionMetadata.classifiers = None
     DistributionMetadata.download_url = None
-
-
-## TODO 201202021610: http://da44en.wordpress.com/2002/11/22/using-distutils/
