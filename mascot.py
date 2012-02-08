@@ -9,15 +9,46 @@
 """
 Mascot module
 =============
-This module contains code related to interpreting Mascot information and files.
-Mascot is a piece of software produced by Matrix Science(R), which is used
-in Proteomics to search Mass Spectrometry data for potential peptide
+This module contains code related to interpreting Mascot information
+and files.  Mascot is a piece of software produced by U{Matrix
+Science(R) <http://www.matrixscience.com/>}, which is used in
+Proteomics to search Mass Spectrometry data for potential peptide
 identifications.
 
-Overview
---------
+Description
+-----------
+Mass spectrometers take a set of molecules that have been isolated by
+mass and charge, and fragment it by a high charged field. The ions
+generated from the fragmentation of those molecules can be further
+fragmented. If the ions that are subjected to the second level of
+fragmentation originate from a peptide, they will further fragment
+revealing mass / charge information related to the peptide sequence.
 
-@todo 201111180955 JNS: write the documentation for this library
+The spectra (the fragmentation pattern) from the second level of
+fragmentation are sent to software to provide identifications on
+peptide sequences, and ultimately on the proteins they belong to. In
+Europe, the accepted software for doing this is Mascot, produced by a
+company U{Matrix Science <http://www.matrixscience.com/>}. This
+library provides an input into processing Mascot-related data.
+
+This library provides the following functionality:
+- reading the User and Group configuration files
+- reading the search logs
+
+Dependancies
+------------
+- In order to provide some cross-operating system functionality, this
+library depends on C{os.path}, to identify the location of defaults
+for the files being loaded.
+- The library provides the ability to load in the logs and in order to
+do this it depends on the C{csv} (Comma Separated Values) library.
+- In order to manipilate the time stamps in the logs, this library
+depends on the C{time} library.
+- The library provides clases to load and interpret the User and Group
+information. These files are XML, and thereby depend on
+C{xml.dom.minidom} to facilitate their loading.
+- The library provides debugging information via the C{logging}
+library.
 
 """
 
@@ -38,7 +69,15 @@ import xml.dom.minidom
 logger = logging.getLogger(__name__)
 
 class Group:
-    """A Mascot Group represented as a struct."""
+    """A Mascot Group represented as a struct.
+
+    The C{struct} stores the group _ID_, _name_ and a _list of User
+    ID's_ associated with that group.
+
+    The C{struct} has one overridden method to facilitate a clear
+    print out of the data via C{print Group}.
+
+    """
     id   = None  #: The numerical identification for the Mascot Group
     name = None  #: The name of the Mascot Group
     uids = []    #: A list of the user identifiers in the Mascot Group
@@ -70,9 +109,8 @@ class GroupXMLInputFileReader:
         Takes a filename (optional) detailing where the group file exists, in
         order to create the object.
 
-        Kwargs:
-            filename (str): the filename of the group XML to open
-                            (default: data/group.xml)
+        @param   filename: the filename of the group XML to open (default: 'I{data/group.xml}')
+        @type    filename: str
 
         """
         self._filename = filename
@@ -83,10 +121,10 @@ class GroupXMLInputFileReader:
         Reads the Mascot group file in (the filename for which the object was
         created with) and obtains the information contained therein.
 
-        Returns:
-            list of Groups (Group): the list of groups contained in the file.
+        C{>>> groups = grp_reader.read_file()}
 
-        >>> groups = grp_reader.read_file()
+        @return: the list of groups contained in the file.
+        @rtype:  the list of Groups (L{Group})
 
         """
         _grps = []
@@ -142,8 +180,8 @@ class GroupXMLInputFileReader:
 class LogEntry:
     """A Mascot Log entry represented as a struct.
 
-    A log entry (a row) from the Mascot log file, represented with each
-    column.
+    A log entry (a row) from the Mascot log file, represented as each
+    column of the row.
     """
     searchid   = None
     pid        = None
@@ -197,9 +235,8 @@ class LogInputFileReader:
         row, that the module stores in memory. It also stores the number of
         rows in a private variable ('_len'). Finally, it closes the file.
 
-        Kwargs:
-            filename (str): the filename of the log file to open
-                            (default: data/logs/searches.log)
+        @param   filename: the filename of the log file to open (default: 'I{data/logs/searches.log}')
+        @type    filename: str
 
         """
         self._rows = []
@@ -213,20 +250,32 @@ class LogInputFileReader:
         file.close()
 
     def __len__(self):
-        """Returns the number of log entries (rows in the file)."""
+        """Returns the number of log entries (rows in the file).
+
+        This method facilitates the use of the C{len} function with
+        this object.
+
+        """
         return self._len
 
     def __iter__(self):
-        """Allows for iteration throught the rows of the log file."""
+        """Allows for iteration throught the rows of the log file.
+
+        This allows a C{for} loop to be conducted on this object, as
+        with a list. It basically is the equivilent of implementing an
+        C{iterator} interface in Java.
+
+        """
         return self
+
     def next(self):
         """Move on to the next row of the log file.
 
-        Part of the iteration, this method passes back the next row of the log
-        file, returning a LogEntry.
+        Part of the iteration interface: this method passes back the
+        next row of the log file, returning a LogEntry.
 
-        Returns:
-            the next log entry (as a LogEntry struct).
+        @return: the next log entry
+        @rtype:  L{LogEntry} struct
 
         """
         # check that the row index (_rowi) is not at the end of the file; raise
@@ -263,10 +312,10 @@ class LogInputFileReader:
 
         Reads the Mascot Log file and returns a list of log entries.
 
-        Returns:
-            list of LogEntries (LogEntry): the list of log entries
+        C{>>> logs = log_reader.read_file()}
 
-        >>> logs = log_reader.read_file()
+        @return: the list of log entries
+        @rtype:  list of LogEntries (L{LogEntry})
 
         """
         # sets up a list of logs
@@ -287,14 +336,22 @@ class LogInputFileReader:
 
         Reset the search log pointer (back to 0 by default).
 
-        Kwargs:
-            idx (int): the index to reset the pointer to (default: 0)
+        @param   idx: the index to reset the pointer to (default: 0).
+        @type    idx: int
 
         """
         self._rowi = idx
 
 class User:
-    """A Mascot User represented as a struct."""
+    """A Mascot User represented as a struct.
+
+    The C{struct} stores the user _ID_, _username_, _full name_, and
+    _e-mail_ address.
+
+    The C{struct} has one overridden method to facilitate a clear
+    print out of the data via C{print User}.
+
+    """
     id       = None
     username = None
     fullname = None
@@ -328,9 +385,8 @@ class UserXMLInputFileReader:
         Takes a filename (optional) detailing where the user file exists, in
         order to create the object.
 
-        Kwargs:
-            filename (str): the filename of the user XML to open
-                            (default: data/user.xml)
+        @param   filename: the filename of the user XML to open (default: 'I{data/user.xml}').
+        @type    filename: str
 
         """
         self._filename = filename
@@ -341,10 +397,10 @@ class UserXMLInputFileReader:
         Reads the Mascot user file in (the filename for which the object was
         created with) and obtains the information contained therein.
 
-        Returns:
-            list of Users (User): the list of users contained in the file.
+        C{>>> users = usr_reader.read_file()}
 
-        >>> users = usr_reader.read_file()
+        @return: the list of users contained in the file.
+        @rtype:  list of Users (L{User})
 
         """
         _usrs = []
