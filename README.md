@@ -28,11 +28,11 @@ code-generated documentation, similar to JavaDoc).
 
 ## Installation
 
-*SEE INSTALL*
+*SEE [INSTALL](INSTALL)*
 
 ## Usage
 
-*SEE examples/README.md*
+*SEE [examples/README.md](examples/README.md)*
 
 ## Author(s)
 
@@ -40,4 +40,4 @@ Julian Selley <[j.selley@manchester.ac.uk](mailto:j.selley@manchester.ac.uk)>
 
 ## License
 
-*SEE LICENSE*
+*SEE [LICENSE](LICENSE)*
