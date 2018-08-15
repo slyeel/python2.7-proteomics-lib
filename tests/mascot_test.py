@@ -40,7 +40,7 @@ import unittest
 # There is no test for the struct classes as these simply store data, without
 # any methods attached to test.
 
-class TestGroupXMLInputFileReader(unittest.TestCase):
+class GroupXMLInputFileReaderTestCase(unittest.TestCase):
     """Test the Mascot Group XML File reader.
 
     This set of tests check the functionality of the Mascot Group XML File
@@ -94,7 +94,7 @@ class TestGroupXMLInputFileReader(unittest.TestCase):
             self.assertNotEqual(group.id, '1', 'group id of guest')
             self.assertEqual(group.id, 1, 'group id of guest')
 
-class TestLogInputFileReader(unittest.TestCase):
+class LogInputFileReaderTestCase(unittest.TestCase):
     """Test the Mascot log file reader.
 
     This set of tests check the functionality of the Mascot Log File reader.
@@ -160,7 +160,7 @@ class TestLogInputFileReader(unittest.TestCase):
     @todo: 20111220 JNS: test reset
     """
 
-class TestUserXMLInputFileReader(unittest.TestCase):
+class UserXMLInputFileReaderTestCase(unittest.TestCase):
     """Test the Mascot User XML File reader.
 
     This set of tests check the functionality of the Mascot User XML File
@@ -221,9 +221,9 @@ class TestUserXMLInputFileReader(unittest.TestCase):
 # if this test is being run from the command line, generate the relevant suites,
 # combine them together and then run them.
 if __name__ == '__main__':
-    groupSuite = unittest.TestLoader().loadTestsFromTestCase(TestGroupXMLInputFileReader)
-    logSuite   = unittest.TestLoader().loadTestsFromTestCase(TestLogInputFileReader)
-    userSuite  = unittest.TestLoader().loadTestsFromTestCase(TestUserXMLInputFileReader)
+    groupSuite = unittest.TestLoader().loadTestsFromTestCase(GroupXMLInputFileReaderTestCase)
+    logSuite   = unittest.TestLoader().loadTestsFromTestCase(LogInputFileReaderTestCase)
+    userSuite  = unittest.TestLoader().loadTestsFromTestCase(UserXMLInputFileReaderTestCase)
     suite      = unittest.TestSuite([groupSuite, logSuite, userSuite])
     #suite = unittest.TestLoader().loadTestsFromModule('mascot_test.py')
     unittest.TextTestRunner(verbosity=2).run(suite)
